@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Module2_1
+﻿namespace Module2_1
 {
 	class Parser
 	{
@@ -17,9 +11,7 @@ namespace Module2_1
 
 		public int ParseToInt32(string str)
 		{
-			int number;
-
-			if (int.TryParse(str, out number))
+			if (int.TryParse(str, out int number))
 			{
 				return number;
 			}
@@ -28,9 +20,7 @@ namespace Module2_1
 
 		public double ParseToDouble(string str)
 		{
-			double number;
-
-			if (double.TryParse(str.Replace('.', ','), out number))
+			if (double.TryParse(str.Replace('.', ','), out double number))
 			{
 				return number;
 			}
