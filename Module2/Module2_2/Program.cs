@@ -10,6 +10,39 @@ namespace Module2_2
 	{
 		static void Main(string[] args)
 		{
+			int age = ParseToInt32(GetInput("Введите Ваш полный возраст: "));
+
+			CheckAge(age);
+
+			Console.ReadKey();
+		}
+
+		static string GetInput(string message)
+		{
+			Console.Write(message);
+			string input = Console.ReadLine();
+			return input;
+		}
+
+		static int ParseToInt32(string str)
+		{
+			if (int.TryParse(str, out int number))
+			{
+				return number;
+			}
+			return ParseToInt32(GetInput("Значение неверно, введите целое число: "));
+		}
+
+		static void CheckAge(int age)
+		{
+			if (age % 2 == 0 && age >= 18)
+			{
+				
+			}
+			else if (age % 2 == 1 && age < 18 && age > 13)
+			{
+
+			}
 		}
 	}
 }
