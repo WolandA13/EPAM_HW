@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Module2_1
 {
-	class Program
+	class ConsoleReader
 	{
-		static void Main(string[] args)
+		public string GetInput(string message)
 		{
-			var calculator = new Calculator();
-			calculator.Start();
-
-			Console.ReadKey();
+			Console.Write(message);
+			string input = Console.ReadLine();
+			return input;
 		}
 	}
 }
