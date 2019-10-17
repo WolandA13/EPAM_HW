@@ -13,21 +13,21 @@ namespace Module2_3
 			var reader = new ConsoleReader();
 			var parser = new Parser();
 			
-			double a = parser.ParseToDouble(reader.GetInput("Введите первое число (a): "));
-			double b = parser.ParseToDouble(reader.GetInput("Введите второе число (b): "));
+			double firstNumber = parser.ParseToDouble(reader.GetInput("Введите первое число (a): "));
+			double secondNumber = parser.ParseToDouble(reader.GetInput("Введите второе число (b): "));
 
-			Swap(ref a, ref b);
+			Swap(ref firstNumber, ref secondNumber);
 
-			Console.WriteLine($"Числа после операции: \n\t a = {a}; \n\t b = {b}.");
+			Console.WriteLine($"Числа после операции: \n\t a = {firstNumber}; \n\t b = {secondNumber}.");
 
 			Console.ReadKey();
 		}
 
-		static void Swap(ref double a, ref double b)
+		static void Swap(ref double firstNumber, ref double secondNumber)
 		{
-			if (a != b)
+			if (firstNumber != secondNumber)
 			{
-				(a, b) = (b, a);
+				(firstNumber, secondNumber) = (secondNumber, firstNumber);
 			}
 		}
 	}
