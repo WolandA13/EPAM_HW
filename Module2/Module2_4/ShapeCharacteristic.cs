@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace Module2_4
 {
-	class Program
+	enum ShapeCharacteristic
 	{
-		static void Main(string[] args)
-		{
-			var calc = new Calculator();
-			calc.Start();
-
-			Console.ReadKey();
-		}
+		Area = 1,
+		Perimeter = 2
 	}
 }

@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace Module2_4
 {
-	class Program
+	enum ShapeType
 	{
-		static void Main(string[] args)
-		{
-			var calc = new Calculator();
-			calc.Start();
-
-			Console.ReadKey();
-		}
+		Circle = 1,
+		Square = 2,
+		Triangle = 3
 	}
 }
