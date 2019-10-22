@@ -37,11 +37,15 @@ namespace Module2_2
 		{
 			if (age % 2 == 0 && age >= 18)
 			{
-				
+				Console.WriteLine("Поздравляю с 18-летием!");
 			}
 			else if (age % 2 == 1 && age < 18 && age > 13)
 			{
-
+				Console.WriteLine("Поздравляю с переходом в старшую школу!");
+			}
+			else
+			{
+				Console.WriteLine("Поздравления закончились, приходите позже.");
 			}
 		}
 	}
