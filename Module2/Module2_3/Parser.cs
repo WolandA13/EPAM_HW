@@ -1,4 +1,6 @@
-﻿namespace Module2_3
+﻿using System.Globalization;
+
+namespace Module2_3
 {
 	class Parser
 	{
@@ -11,7 +13,9 @@
 
 		public double ParseToDouble(string str)
 		{
-			if (double.TryParse(str.Replace('.', ','), out double number))
+			var style = NumberStyles.Any;
+			var culture = CultureInfo.CreateSpecificCulture("ru-RU");
+			if (double.TryParse(str.Replace('.', ','), style, culture, out double number))
 			{
 				return number;
 			}
