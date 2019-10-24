@@ -32,7 +32,7 @@ namespace Module3_8
 
 			if (Func(leftBound) * Func(rightBound) >= 0)
 			{
-				Console.WriteLine("Значения должны иметь разные знаки.");
+				Console.WriteLine("Данные не подходят.");
 				EnterBounds();
 			}
 		}
@@ -61,12 +61,12 @@ namespace Module3_8
 				}
 			}
 			x = (leftBound + rightBound) / 2;
-			Console.WriteLine("x = ", x);
+			Console.WriteLine("x = " + x);
 		}
 
 		public double Func(double x)
 		{
-			return Math.Pow(x, 2) * 15 + 5 * x - 10;
+			return 5 * x - 10;
 		}
 	}
 }
