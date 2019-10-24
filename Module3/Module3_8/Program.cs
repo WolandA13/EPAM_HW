@@ -10,6 +10,12 @@ namespace Module3_8
 	{
 		static void Main(string[] args)
 		{
+			var bisection = new BisectionMetod();
+			bisection.EnterBounds();
+			bisection.EnterAccuracy();
+			bisection.StartCalculation();
+
+			Console.ReadKey();
 		}
 	}
 }
