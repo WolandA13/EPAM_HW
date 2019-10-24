@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Module3_6
 {
@@ -10,20 +6,21 @@ namespace Module3_6
 	{
 		static void Main(string[] args)
 		{
-			double[] initialArr = CreateArray(-20, 20) ;
+			double[] initialArr = CreateArray(10, -20, 20) ;
 			WriteArray(initialArr, "Начальный массив: ");
+
+			Console.WriteLine();
 
 			double[] newArray = ChangeArray(initialArr);
 			WriteArray(newArray, "Изменённый массив: ");
 
-
 			Console.ReadKey();
 		}
 
-		static double[] CreateArray(double leftBound, double rightBound)
+		static double[] CreateArray(int length, double leftBound, double rightBound)
 		{
 			var random = new Random();
-			double[] array = new double[random.Next(5, 15)];
+			double[] array = new double[length];
 
 			for (int index = 0; index < array.Length; index++)
 			{
