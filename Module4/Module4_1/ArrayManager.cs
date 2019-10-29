@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Module4_1
 {
@@ -21,13 +17,14 @@ namespace Module4_1
 			return array;
 		}
 
-		public void WriteArray(double[] array, string message)
+		public void WriteArray(string message, int[] array)
 		{
 			Console.WriteLine(message);
-			foreach (var number in array)
+			foreach (var element in array)
 			{
-				Console.WriteLine(number);
+				Console.Write(element + "\t");
 			}
+			Console.WriteLine();
 		}
 
 		public int GetMaxElementFromArray(int[] array)
