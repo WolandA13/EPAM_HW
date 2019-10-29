@@ -2,7 +2,7 @@
 
 namespace Module4_1
 {
-	class ArrayManager
+	public class ArrayManager
 	{
 		public int[] CreateRandomArray(int length, int leftBound, int rightBound)
 		{

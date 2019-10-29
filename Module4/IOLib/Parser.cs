@@ -1,6 +1,6 @@
 ﻿namespace IOLib
 {
-	class Parser
+	public class Parser
 	{
 		private ConsoleReader reader;
 

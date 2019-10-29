@@ -2,7 +2,7 @@
 
 namespace IOLib
 {
-	class ConsoleReader
+	public class ConsoleReader
 	{
 		public string GetInput(string message)
 		{

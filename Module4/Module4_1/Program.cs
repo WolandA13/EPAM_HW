@@ -8,10 +8,10 @@ namespace Module4_1
 		{
 			var arrManager = new ArrayManager();
 
-			int arrLength = 12;
+			int arrayLength = 12;
 			int leftBoundOfArray = -10;
 			int rightBoundOfArray = 10;
-			int[] array = arrManager.CreateRandomArray(arrLength, leftBoundOfArray, rightBoundOfArray);
+			int[] array = arrManager.CreateRandomArray(arrayLength, leftBoundOfArray, rightBoundOfArray);
 
 			arrManager.WriteArray("Начальный массив:", array);
 
