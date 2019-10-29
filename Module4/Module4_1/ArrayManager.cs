@@ -10,7 +10,24 @@ namespace Module4_1
 	{
 		public int[] CreateRandomArray(int length, int leftBound, int rightBound)
 		{
+			var random = new Random();
+			var array = new int[length];
 
+			for (int index = 0; index < array.Length; index++)
+			{
+				array[index] = random.Next(leftBound, rightBound);
+			}
+
+			return array;
+		}
+
+		public void WriteArray(double[] array, string message)
+		{
+			Console.WriteLine(message);
+			foreach (var number in array)
+			{
+				Console.WriteLine(number);
+			}
 		}
 
 		public int GetMaxElementFromArray(int[] array)
