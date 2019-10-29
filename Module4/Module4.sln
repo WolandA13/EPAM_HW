@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module4_1", "Module4_1\Module4_1.csproj", "{5C6AB365-2DD7-4EEA-8BF6-72ABC5E25E70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOLib", "IOLib\IOLib.csproj", "{F2D32E85-42A8-4144-AC9A-CF75E3E3FBFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5C6AB365-2DD7-4EEA-8BF6-72ABC5E25E70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C6AB365-2DD7-4EEA-8BF6-72ABC5E25E70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C6AB365-2DD7-4EEA-8BF6-72ABC5E25E70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D32E85-42A8-4144-AC9A-CF75E3E3FBFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D32E85-42A8-4144-AC9A-CF75E3E3FBFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D32E85-42A8-4144-AC9A-CF75E3E3FBFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D32E85-42A8-4144-AC9A-CF75E3E3FBFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
