@@ -8,12 +8,19 @@ namespace Module4_3
 		static void Main(string[] args)
 		{
 			CreateRandomNumbers(out int firstNumber, out int secondNumber, out int thirdNumber);
+			Console.WriteLine($"Начальные числа: {firstNumber}, {secondNumber}, {thirdNumber}.");
 
 			IncreaseNumbersByTen(ref firstNumber, ref secondNumber, ref thirdNumber);
-			GetCirclePropsByRadius(10, out double circumference, out double areaOfCircle);
+			Console.WriteLine($"Они же, увеличенные на 10: {firstNumber}, {secondNumber}, {thirdNumber}.");
+
+			GetCirclePropsByRadius(Math.Abs(firstNumber), out double circumference, out double areaOfCircle);
+			Console.WriteLine($"При радиусе |{firstNumber}| длина окружности будет равна {circumference}, а площадь круга — {areaOfCircle}.");
 
 			var arrayManager = new ArrayManager();
-			GetPropsOfArray(arrayManager.CreateRandomArray(10, -10, 10), out int minElement, out int maxElement, out int sumOfElements);
+			int[] array = arrayManager.CreateRandomArray(10, -10, 10);
+			arrayManager.WriteArray("Массив:", array);
+			GetPropsOfArray(array, out int minElement, out int maxElement, out int sumOfElements);
+			Console.WriteLine($"Его минимальный элемент равен {minElement}, максимальный — {maxElement}, а сумма всех элементов — {sumOfElements}.");
 
 			Console.ReadKey();
 		}
