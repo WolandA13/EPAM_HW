@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using IOLib;
 
 namespace Module4_5
@@ -15,6 +11,10 @@ namespace Module4_5
 			double result = PerformOperation(firstNumber, secondNumber, out char sign);
 
 			Console.WriteLine($"{firstNumber} {sign} {secondNumber} = {result}");
+			Console.WriteLine();
+
+			int numberOfDaysInMonth = CalculateNumberOfDaysInMonth();
+			Console.WriteLine($"Количество дней в месяце равно {numberOfDaysInMonth}.");
 
 			Console.ReadKey();
 		}
@@ -69,6 +69,59 @@ namespace Module4_5
 			}
 
 			return result;
+		}
+
+		static int CalculateNumberOfDaysInMonth()
+		{
+			var parser = new Parser();
+			var reader = new ConsoleReader();
+			int numberOfMonth = parser.ParseToInt32(reader.GetInput("Введите номер месяца: "));
+
+			if (numberOfMonth > 0 && numberOfMonth < 13)
+			{
+				switch (numberOfMonth)
+				{
+					case 4:
+					case 6:
+					case 9:
+					case 11:
+						return 30;
+					case 2:
+						if (IsLeapYear())
+						{
+							return 29;
+						}
+						else
+						{
+							return 28;
+						}
+					default:
+						return 31;
+				}
+			}
+			else
+			{
+				Console.WriteLine("Такого месяца не существует.");
+				return CalculateNumberOfDaysInMonth();
+			}
+		}
+
+		static bool IsLeapYear()
+		{
+			var parser = new Parser();
+			var reader = new ConsoleReader();
+			Answer answer = (Answer)parser.ParseToInt32(reader.GetInput("Является ли год високосным? \n\t 1) Да; \n\t 2) Нет. \n"));
+
+			switch (answer)
+			{
+				case Answer.Yes:
+					return true;
+				case Answer.No:
+					return false;
+				default:
+					Console.WriteLine("Такого варианта ответа не существует.");
+					return IsLeapYear();
+			}
 		}
 	}
 }
