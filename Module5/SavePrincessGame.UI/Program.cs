@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module5
+namespace SavePrincessGame.UI
 {
-	class Hero
+	class Program
 	{
-		public (int, int) Position { get; set; }
-
-		public Hero()
+		static void Main(string[] args)
 		{
-
 		}
 	}
 }

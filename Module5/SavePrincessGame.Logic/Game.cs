@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module5
+namespace SavePrincessGame.Logic
 {
-	class Program
+	class Game
 	{
-		static void Main(string[] args)
-		{
-			var game = new Game();
-		}
+		
 	}
 }

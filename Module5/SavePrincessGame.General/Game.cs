@@ -4,20 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module5
+namespace SavePrincessGame.General
 {
 	class Game
 	{
-		private Cell[] field;
+		public Field Field { get; }
 
 		public Game()
 		{
-			field = new Cell[100];
-		}
-
-		public void Start()
-		{
-
+			Field = new Field(new Hero(new Cell(0, 0), 0, 10), new List<Trap>(10));
 		}
 	}
 }

@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module5
+namespace SavePrincessGame.General
 {
-	class Cell
+	class Princess
 	{
-		public int X { get; set; }
-		public int Y { get; set; }
 	}
 }
