@@ -1,10 +1,10 @@
 ﻿namespace SavePrincessGame.General
 {
-	public class Princess : IPlaceble
+	public class Wall : IPlaceble
 	{
 		public Cell OccupiedCell { get; set; }
 
-		public Princess(Cell occupiedCell)
+		public Wall(Cell occupiedCell)
 		{
 			OccupiedCell = occupiedCell;
 		}

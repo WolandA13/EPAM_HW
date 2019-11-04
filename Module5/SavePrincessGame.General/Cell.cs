@@ -1,14 +1,21 @@
-﻿namespace SavePrincessGame.General
-{
-	class Cell
-	{
-		public int Row { get; set; }
-		public int Line { get; set; }
+﻿using System;
 
-		public Cell(int row, int line)
+namespace SavePrincessGame.General
+{
+	public struct Cell : IEquatable<Cell>
+	{
+		public int Column { get; set; }
+		public int Row { get; set; }
+
+		public Cell(int column, int row)
 		{
+			Column = column;
 			Row = row;
-			Line = line;
+		}
+
+		public bool Equals(Cell otherCell)
+		{
+			return (Column == otherCell.Column && Row == otherCell.Row);
 		}
 	}
 }

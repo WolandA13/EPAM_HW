@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SavePrincessGame.General;
+using System;
 
 namespace SavePrincessGame.UI
 {
@@ -10,6 +7,18 @@ namespace SavePrincessGame.UI
 	{
 		static void Main(string[] args)
 		{
+			var game = new Game
+				(
+				startedHeroCell: new Cell(0, 0),
+				heroHP: 10,
+				numberOfTraps: 10,
+				fieldHeight: 10,
+				fieldWidth: 10,
+				princessCell: new Cell(10, 10)
+				);
+
+			var handler = new Handler(game);
+			handler.Start();
 		}
 	}
 }

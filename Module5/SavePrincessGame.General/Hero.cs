@@ -1,34 +1,39 @@
 ﻿namespace SavePrincessGame.General
 {
-	class Hero : IPlaceble
+	public class Hero : IPlaceble
 	{
 		private int hp;
 
 		public Cell OccupiedCell { get; set; }
+		public Cell LastCell { get; set; }
+		public bool IsAlive;
 		public int HP 
 		{ 
 			get => hp; 
 			set
 			{
-				if (value >= MinHP && value <= MaxHP)
+				if (value > 0)
 				{
 					hp = value;
 				}
+				else if (value <= 0)
+				{
+					hp = 0;
+					IsAlive = false;
+				}
 			}
 		}
-		public int MaxHP { get; set; }
-		public int MinHP { get; }
 
-		public Hero(Cell startedCell, int minHp, int maxHP)
+		public Hero(Cell startedCell, int HP)
 		{
+			IsAlive = true;
 			OccupiedCell = startedCell;
-			MinHP = minHp;
-			MaxHP = maxHP;
-			HP = MaxHP;
+			this.HP = HP;
 		}
 
 		public void MoveTo(Cell nextCell)
 		{
+			LastCell = OccupiedCell;
 			OccupiedCell = nextCell;
 		}
 	}

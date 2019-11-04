@@ -1,6 +1,6 @@
 ﻿namespace SavePrincessGame.General
 {
-	interface IPlaceble
+	public interface IPlaceble
 	{
 		Cell OccupiedCell { get; set; }
 	}
