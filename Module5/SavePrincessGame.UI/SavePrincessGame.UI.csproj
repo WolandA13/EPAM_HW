@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ConsoleReader.cs" />
     <Compile Include="ConsoleWriter.cs" />
+    <Compile Include="GameEndSituations.cs" />
     <Compile Include="Handler.cs" />
     <Compile Include="Key.cs" />
     <Compile Include="Program.cs" />

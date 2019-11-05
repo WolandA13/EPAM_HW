@@ -1,5 +1,4 @@
 ﻿using SavePrincessGame.General;
-using System;
 
 namespace SavePrincessGame.UI
 {

@@ -8,6 +8,6 @@
 		Right,
 		Left,
 		Exit,
-		Reload
+		Restart
 	}
 }

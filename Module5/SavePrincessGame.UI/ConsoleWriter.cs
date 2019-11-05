@@ -8,6 +8,7 @@ namespace SavePrincessGame.UI
 	{
 		private readonly int columnOffset;
 		private readonly int rowOffset;
+		private readonly int rightBoundOfField;
 		private readonly Game game;
 
 		public ConsoleWriter(Game game)
@@ -18,6 +19,7 @@ namespace SavePrincessGame.UI
 			this.game = game;
 			columnOffset = game.Field.Select(entity => entity.OccupiedCell.Column).Min() * -1 + 1;
 			rowOffset = game.Field.Select(entity => entity.OccupiedCell.Row).Min() * -1 + 1;
+			rightBoundOfField = game.Field.Select(entity => entity.OccupiedCell.Column).Max() + columnOffset;
 		}
 
 		internal void WriteGame()
@@ -33,6 +35,9 @@ namespace SavePrincessGame.UI
 			}
 			Write(game.Hero);
 			Write(game.Princess);
+
+			WriteHPBar();
+			WriteInfo();
 		}
 
 		internal void Write(IPlaceble entity)
@@ -62,10 +67,10 @@ namespace SavePrincessGame.UI
 				}
 				else
 				{
-					color = ConsoleColor.Black;
-					symbol = ' ';
-					//color = ConsoleColor.White;
-					//symbol = (entity as Trap).Damage.ToString().ToCharArray()[0];
+					//color = ConsoleColor.Black;
+					//symbol = ' ';
+					color = ConsoleColor.White;
+					symbol = (entity as Trap).Damage.ToString().ToCharArray()[0];
 				}
 				return;
 			}
@@ -93,6 +98,31 @@ namespace SavePrincessGame.UI
 
 			color = ConsoleColor.Blue;
 			symbol = '?';
+		}
+
+		internal void WriteHPBar()
+		{
+			Console.ForegroundColor = ConsoleColor.Green;
+			Console.SetCursorPosition(rightBoundOfField * 2 + 3, 1);
+			Console.Write("{0:d2}/10 HP", game.Hero.HP);
+		}
+
+		private void WriteInfo()
+		{
+			string infoString = "Стрелки и WASD — управление героем (Н).\n" +
+								"R — рестарт.\n" +
+								"Esc — выход. \n\n" +
+								"Цель игры — дойти до принцессы (P), избегая ловушек (о).";
+
+			int lineIndex = 3;
+			Console.ForegroundColor = ConsoleColor.Gray;
+
+			foreach (string str in infoString.Split('\n'))
+			{
+				Console.SetCursorPosition(rightBoundOfField * 2 + 3, lineIndex);
+				Console.Write(str);
+				lineIndex++;
+			}
 		}
 
 		internal void WriteMovement(Hero hero)

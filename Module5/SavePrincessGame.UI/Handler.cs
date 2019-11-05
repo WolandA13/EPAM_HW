@@ -21,17 +21,16 @@ namespace SavePrincessGame.UI
 
 			while (game.Hero.IsAlive)
 			{
+				writer.WriteHPBar();
 				Key key = reader.Read();
 				HandleKey(key);
 				writer.WriteActivatedTraps();
 			}
-
-			//GameOver();
 		}
 
 		private void HandleKey(Key key)
 		{
-			var direction = new MoveDirection();
+			var direction = MoveDirection.Nonexistent;
 
 			switch (key)
 			{
@@ -50,7 +49,7 @@ namespace SavePrincessGame.UI
 				case Key.Exit:
 					//
 					break;
-				case Key.Reload:
+				case Key.Restart:
 					//
 					break;
 				case Key.Nonexistent:

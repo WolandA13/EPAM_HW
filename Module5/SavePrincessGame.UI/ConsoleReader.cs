@@ -31,7 +31,7 @@ namespace SavePrincessGame.UI
 					key = Key.Exit;
 					break;
 				case ConsoleKey.R:
-					key = Key.Reload;
+					key = Key.Restart;
 					break;
 				default:
 					key = Key.Nonexistent;

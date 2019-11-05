@@ -69,7 +69,7 @@ namespace SavePrincessGame.General
 
 			for (int index = 0; index < numberOfTraps; index++)
 			{
-				if (index == fieldHeight * fieldWidth)
+				if (index == fieldHeight * fieldWidth - 2)
 				{
 					break;
 				}
@@ -86,7 +86,7 @@ namespace SavePrincessGame.General
 				int trapDamage = random.Next(1, 11);
 				var trap = new Trap(trapDamage, cell);
 
-				if (Field.Contains(trap))
+				if (Field.Exists(element => element.OccupiedCell.Equals(trap.OccupiedCell)))
 				{
 					index--;
 					continue;
@@ -119,6 +119,7 @@ namespace SavePrincessGame.General
 				case MoveDirection.Left:
 					nextCell.Column--;
 					break;
+				case MoveDirection.Nonexistent:
 				default:
 					return false;
 			}
