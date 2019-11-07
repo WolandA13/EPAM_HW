@@ -9,6 +9,7 @@ namespace SavePrincessGame.UI
 		private readonly int columnOffset;
 		private readonly int rowOffset;
 		private readonly int rightBoundOfField;
+		private readonly int bottomBoundOfField;
 		private readonly Game game;
 
 		public ConsoleWriter(Game game)
@@ -20,6 +21,7 @@ namespace SavePrincessGame.UI
 			columnOffset = game.Field.Select(entity => entity.OccupiedCell.Column).Min() * -1 + 1;
 			rowOffset = game.Field.Select(entity => entity.OccupiedCell.Row).Min() * -1 + 1;
 			rightBoundOfField = game.Field.Select(entity => entity.OccupiedCell.Column).Max() + columnOffset;
+			bottomBoundOfField = game.Field.Select(entity => entity.OccupiedCell.Row).Max() + rowOffset;
 		}
 
 		internal void WriteGame()
@@ -67,10 +69,8 @@ namespace SavePrincessGame.UI
 				}
 				else
 				{
-					//color = ConsoleColor.Black;
-					//symbol = ' ';
-					color = ConsoleColor.White;
-					symbol = (entity as Trap).Damage.ToString().ToCharArray()[0];
+					color = ConsoleColor.Black;
+					symbol = ' ';
 				}
 				return;
 			}
@@ -150,6 +150,15 @@ namespace SavePrincessGame.UI
 					Write(trap);
 				}
 			}
+		}
+
+		internal void AskUser(string message)
+		{
+			Console.SetCursorPosition(1, bottomBoundOfField + 2);
+			Console.ForegroundColor = ConsoleColor.White;
+			Console.WriteLine(message);
+			Console.WriteLine(" 1) Да; \n" +
+							  " 2) Нет.");
 		}
 	}
 }

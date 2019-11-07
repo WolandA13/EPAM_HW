@@ -1,10 +1,11 @@
 ﻿namespace SavePrincessGame.UI
 {
-	enum GameEndSituations
+	enum GameEndSituation
 	{
 		Exit,
 		HeroDeath,
 		Restart,
 		Win,
+		NotHappened
 	}
 }

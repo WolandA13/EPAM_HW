@@ -11,7 +11,7 @@ namespace SavePrincessGame.General
 		public Princess Princess { get; }
 		public List<IPlaceble> Field { get; }
 
-		public Game(Cell startedHeroCell, int heroHP, int numberOfTraps, int fieldHeight, int fieldWidth, Cell princessCell)
+		public Game(Cell startedHeroCell, int heroHP, int numberOfTraps, int fieldWidth, int fieldHeight, Cell princessCell)
 		{
 			Field = new List<IPlaceble>();
 			Walls = CreateWalls(fieldHeight, fieldWidth);
@@ -149,7 +149,7 @@ namespace SavePrincessGame.General
 			bool HeroCanMove;
 			if (cellToInterract.Equals(Princess.OccupiedCell))
 			{
-				//GetWin();
+				Princess.WasEscaped = true;
 				return false;
 			}
 

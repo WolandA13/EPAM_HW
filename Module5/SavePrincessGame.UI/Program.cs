@@ -1,23 +1,17 @@
-﻿using SavePrincessGame.General;
-
-namespace SavePrincessGame.UI
+﻿namespace SavePrincessGame.UI
 {
 	class Program
 	{
-		static void Main(string[] args)
+		public static void Main()
 		{
-			var game = new Game
-				(
-				startedHeroCell: new Cell(0, 0),
-				heroHP: 10,
-				numberOfTraps: 10,
-				fieldHeight: 10,
-				fieldWidth: 10,
-				princessCell: new Cell(10, 10)
-				);
+			var handler = new Handler();
+			bool playerWantToContinuePlaying = true;
 
-			var handler = new Handler(game);
-			handler.Start();
+			while (playerWantToContinuePlaying)
+			{
+				GameEndSituation gameEndSituation = handler.Start();
+				playerWantToContinuePlaying = handler.HandleGameEnd(gameEndSituation);
+			}
 		}
 	}
 }

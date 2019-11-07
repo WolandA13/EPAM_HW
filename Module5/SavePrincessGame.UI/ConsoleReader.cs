@@ -4,7 +4,7 @@ namespace SavePrincessGame.UI
 {
 	class ConsoleReader
 	{
-		internal Key Read()
+		internal Key ReadKey()
 		{
 			ConsoleKeyInfo pressedKey = Console.ReadKey(true);
 			Key key;
@@ -39,6 +39,31 @@ namespace SavePrincessGame.UI
 			}
 
 			return key;
+		}
+
+		internal UserAnswer GetUserAnswer()
+		{
+			var userAnswer = UserAnswer.Nonexistent;
+
+			while (userAnswer == UserAnswer.Nonexistent)
+			{
+				ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+
+				switch (pressedKey.Key)
+				{
+					case ConsoleKey.D1:
+						userAnswer = UserAnswer.Yes;
+						break;
+					case ConsoleKey.D2:
+						userAnswer = UserAnswer.No;
+						break;
+					default:
+						userAnswer = UserAnswer.Nonexistent;
+						break;
+				}
+			}
+
+			return userAnswer;
 		}
 	}
 }
