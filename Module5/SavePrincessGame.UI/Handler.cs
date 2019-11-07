@@ -25,7 +25,7 @@ namespace SavePrincessGame.UI
 				fieldHeight: 10,
 				princessCell: new Cell(10, 10)
 				);
-
+ 
 			reader = new ConsoleReader();
 			writer = new ConsoleWriter(game);
 		}
@@ -129,6 +129,7 @@ namespace SavePrincessGame.UI
 			{
 				return false;
 			}
+			Console.Clear();
 			return true;
 		}
 
