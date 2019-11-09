@@ -63,7 +63,7 @@ namespace Module4_1
 			return sum;
 		}
 
-		public int GetDifferBtwnMaxAndMinInArray(int[] array)
+		public int GetDifferBtwnMaxAndMin(int[] array)
 		{
 			return GetMaxElementFromArray(array) - GetMinElementFromArray(array);
 		}

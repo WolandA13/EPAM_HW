@@ -13,13 +13,13 @@ namespace Module4_6
 			int[] array = arrayManager.CreateRandomArray(10, -10, 10);
 			arrayManager.WriteArray("Начальный массив:", array);
 
-			IncreaseArrayBy(dimensionOfIncrease, array);
+			IncreaseArray(array, dimensionOfIncrease);
 			arrayManager.WriteArray($"Изменённый массив (элементы которого увеличены на {dimensionOfIncrease}):", array);
 
 			Console.ReadKey();
 		}
 
-		static void IncreaseArrayBy(int dimensionOfIncrease, int[] array)
+		static void IncreaseArray(int[] array, int dimensionOfIncrease)
 		{
 			for (int index = 0; index < array.Length; index++)
 			{

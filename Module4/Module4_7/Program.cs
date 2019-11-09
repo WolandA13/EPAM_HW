@@ -34,10 +34,10 @@ namespace Module4_7
 			switch (sortDirection)
 			{
 				case SortDirection.InAscendingOrder:
-					SortArrayInAscendingOrder(array);
+					SortByAscending(array);
 					break;
 				case SortDirection.InDescendingOrder:
-					SortArrayInDescendingOrder(array);
+					SortByDescending(array);
 					break;
 				default:
 					Console.WriteLine("Такого варианта нет.");
@@ -47,7 +47,7 @@ namespace Module4_7
 			}
 		}
 
-		static void SortArrayInAscendingOrder(int[] array)
+		static void SortByAscending(int[] array)
 		{
 			for (int iteration = 1; iteration < array.Length; iteration++)
 			{
@@ -69,7 +69,7 @@ namespace Module4_7
 			}
 		}
 
-		static void SortArrayInDescendingOrder(int[] array)
+		static void SortByDescending(int[] array)
 		{
 			for (int iteration = 1; iteration < array.Length; iteration++)
 			{

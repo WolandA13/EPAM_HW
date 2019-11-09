@@ -70,7 +70,7 @@ namespace Module4_8
 			return Calculate(leftBound, rightBound, accuracy);
 		}
 
-		static double Func(double x)
+		static double Function(double x)
 		{
 			return 5 * x - 10;
 		}
