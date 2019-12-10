@@ -13,14 +13,20 @@ namespace Business
 			CashFlow = new List<FinanceRecord>();
 		}
 
-		public void AddIncome(double income)
+		public void AddIncomes(params double[] incomes)
 		{
-			AddRecord(income);
+			foreach (var income in incomes)
+			{
+				AddRecord(income);
+			}
 		}
 
-		public void AddExpense(double expense)
+		public void AddExpenses(params double[] expenses)
 		{
-			AddRecord(-expense);
+			foreach (var expense in expenses)
+			{
+				AddRecord(-expense);
+			}
 		}
 
 		private void AddRecord(double amountOfCash)

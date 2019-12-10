@@ -107,8 +107,8 @@ namespace UI
 			{
 				try
 				{
-					double inputValue = GetInput();
-					financialAssistent.AddExpense(inputValue);
+					var inputValues = GetInput();
+					financialAssistent.AddExpenses(inputValues.ToArray());
 					isOperationSuccessful = true;
 				}
 				catch (FormatException ex)
@@ -116,7 +116,7 @@ namespace UI
 					writer.WriteLine(ex.Message);
 				}
 			}
-			writer.WriteLine("Значение добавлено.");
+			writer.WriteLine("Значения добавлены.");
 		}
 
 		private void AddIncome()
@@ -126,8 +126,8 @@ namespace UI
 			{
 				try
 				{
-					double inputValue = GetInput();
-					financialAssistent.AddIncome(inputValue);
+					var inputValues = GetInput();
+					financialAssistent.AddIncomes(inputValues.ToArray());
 					isOperationSuccessful = true;
 				}
 				catch (FormatException ex)
@@ -135,7 +135,7 @@ namespace UI
 					writer.WriteLine(ex.Message);
 				}
 			}
-			writer.WriteLine("Значение добавлено.");
+			writer.WriteLine("Значения добавлены.");
 		}
 
 		private void DisplayExpenses()
@@ -156,14 +156,28 @@ namespace UI
 			writer.Write(incomes);
 		}
 
-		private double GetInput()
+		private List<double> GetInput()
 		{
-			writer.Write("Введите значение: ");
-			bool isParsingSuccessful = double.TryParse(reader.ReadLine(), out double result);
-			if (isParsingSuccessful)
+			writer.Write("Введите значения: ");
+
+			var inputValues = reader.ReadLine().Split();
+			var results = new List<double>();
+
+			foreach (var inputValue in inputValues)
 			{
-				return result;
+				bool isParsingSuccessful = double.TryParse(inputValue, out double result);
+				
+				if (isParsingSuccessful)
+				{
+					results.Add(result);
+				}
 			}
+			
+			if (results.Count > 0)
+			{
+				return results;
+			}
+
 			throw new FormatException("Неверный формат числа. Введите целое число.");
 		}
 	}
