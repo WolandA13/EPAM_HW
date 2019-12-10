@@ -11,7 +11,7 @@ namespace UI
 			Console.Write(message);
 		}
 
-		public void Write(List<T> collection)
+		public void Write(IEnumerable<T> collection)
 		{
 			foreach (var item in collection)
 			{

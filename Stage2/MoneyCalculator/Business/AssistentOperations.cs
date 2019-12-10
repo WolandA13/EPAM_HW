@@ -6,6 +6,7 @@
 		AddExpense = 2,
 		GetIncomes = 3,
 		GetExpenses = 4,
-		Exit = 5
+		AnalizeCashFlow = 5,
+		Exit = 6
 	}
 }

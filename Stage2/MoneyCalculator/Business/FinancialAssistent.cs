@@ -5,21 +5,12 @@ namespace Business
 	public class FinancialAssistent
 	{
 		public bool IsWorking { get; set; }
-		public List<double> Incomes { get; private set; }
-		public List<double> Expenses { get; private set; }
-		public IReadOnlyCollection<AssistentOperations> OperationsRequireInput { get; private set; }
+		public List<FinanceRecord> CashFlow { get; }
 
 		public FinancialAssistent()
 		{
 			IsWorking = true;
-			Incomes = new List<double>();
-			Expenses = new List<double>();
-
-			OperationsRequireInput = new List<AssistentOperations>() 
-			{ 
-				AssistentOperations.AddExpense, 
-				AssistentOperations.AddIncome 
-			};
+			CashFlow = new List<FinanceRecord>();
 		}
 
 		public void AddIncome(double income)
@@ -34,17 +25,26 @@ namespace Business
 
 		private void AddRecord(double amountOfCash)
 		{
+			FinanceRecord financeRecord;
+
+			if (amountOfCash == 0)
+			{
+				return;
+			}
+
 			if (amountOfCash > 0)
 			{
-				Incomes.Add(amountOfCash);
+				financeRecord = new FinanceRecord(amountOfCash);
 			}
-			else if (amountOfCash < 0)
+			else
 			{
-				Expenses.Add(-amountOfCash);
+				financeRecord = new FinanceRecord(amountOfCash);
 			}
+
+			CashFlow.Add(financeRecord);
 		}
 
-		private void AnalizeCashFlow()
+		public void AnalizeCashFlow()
 		{
 
 		}

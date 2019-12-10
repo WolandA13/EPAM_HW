@@ -1,19 +1,19 @@
 ﻿using Business;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UI.Interfaces;
 
 namespace UI
 {
 	class UserInterface
 	{
-		private readonly string welcomeMessage;
 		private readonly Dictionary<AssistentOperations, string> options;
-		private readonly IWriter<double> writer;
+		private readonly IWriter<FinanceRecord> writer;
 		private readonly IReader reader;
 		private readonly FinancialAssistent financialAssistent;
 
-		public UserInterface(IWriter<double> writer, IReader reader)
+		public UserInterface(IWriter<FinanceRecord> writer, IReader reader)
 		{
 			financialAssistent = new FinancialAssistent();
 			this.writer = writer;
@@ -25,6 +25,7 @@ namespace UI
 				[AssistentOperations.AddExpense] = "добавить расход",
 				[AssistentOperations.GetIncomes] = "получить список доходов",
 				[AssistentOperations.GetExpenses] = "получить список расходов",
+				[AssistentOperations.AnalizeCashFlow] = "анализ финансов",
 				[AssistentOperations.Exit] = "выйти из приложения"
 			};
 		}
@@ -82,12 +83,21 @@ namespace UI
 					case (int)AssistentOperations.GetIncomes:
 						DisplayIncomes();
 						break;
+					case (int)AssistentOperations.AnalizeCashFlow:
+						AnalizeCashFlow();
+						break;
 					default:
 						throw new FormatException("Такого пункта нет, выберите другой пункт.");
 				}
 				return;
 			}
 			throw new FormatException("Неверный формат числа. Введите целое число.");
+		}
+
+		private void AnalizeCashFlow()
+		{
+			financialAssistent.AnalizeCashFlow();
+
 		}
 
 		private void AddExpense()
@@ -106,6 +116,7 @@ namespace UI
 					writer.WriteLine(ex.Message);
 				}
 			}
+			writer.WriteLine("Значение добавлено.");
 		}
 
 		private void AddIncome()
@@ -124,18 +135,25 @@ namespace UI
 					writer.WriteLine(ex.Message);
 				}
 			}
+			writer.WriteLine("Значение добавлено.");
 		}
 
 		private void DisplayExpenses()
 		{
 			writer.WriteLine("Расходы:");
-			writer.Write(financialAssistent.Expenses);
+			var expenses = from cashRecord in financialAssistent.CashFlow 
+						   where cashRecord.MoneyAmount < 0 
+						   select cashRecord;
+			writer.Write(expenses);
 		}
 
 		private void DisplayIncomes()
 		{
 			writer.WriteLine("Доходы:");
-			writer.Write(financialAssistent.Incomes);
+			var incomes = from cashRecord in financialAssistent.CashFlow 
+						  where cashRecord.MoneyAmount > 0 
+						  select cashRecord;
+			writer.Write(incomes);
 		}
 
 		private double GetInput()

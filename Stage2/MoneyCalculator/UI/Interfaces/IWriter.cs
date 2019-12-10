@@ -8,6 +8,6 @@ namespace UI.Interfaces
 
 		public void Write(string data);
 
-		public void Write(List<T> data);
+		public void Write(IEnumerable<T> data);
 	}
 }
