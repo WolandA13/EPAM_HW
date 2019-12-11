@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UI.Interfaces;
 
 namespace UI
@@ -11,7 +10,7 @@ namespace UI
 			Console.Write(message);
 		}
 
-		public void Write(IEnumerable<T> collection)
+		public void Write(params T[] collection)
 		{
 			foreach (var item in collection)
 			{

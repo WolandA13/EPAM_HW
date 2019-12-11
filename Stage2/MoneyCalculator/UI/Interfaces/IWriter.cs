@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace UI.Interfaces
+﻿namespace UI.Interfaces
 {
 	public interface IWriter<T>
 	{
@@ -8,6 +6,6 @@ namespace UI.Interfaces
 
 		public void Write(string data);
 
-		public void Write(IEnumerable<T> data);
+		public void Write(params T[] data);
 	}
 }

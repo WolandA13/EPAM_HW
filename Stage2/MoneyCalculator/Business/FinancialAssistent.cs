@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Business
 {
@@ -50,9 +51,19 @@ namespace Business
 			CashFlow.Add(financeRecord);
 		}
 
-		public void AnalizeCashFlow()
+		public double GetAccountBalance()
 		{
+			return CashFlow.Select(financeRecord => financeRecord.MoneyAmount).Sum();
+		}
 
+		public FinanceRecord GetMaxExpenseRecord()
+		{
+			return CashFlow.Find(financeRecord => financeRecord.MoneyAmount == CashFlow.Select(el => el.MoneyAmount).Min());
+		}
+
+		public FinanceRecord GetMaxIncomeRecord()
+		{
+			return CashFlow.Find(financeRecord => financeRecord.MoneyAmount == CashFlow.Select(el => el.MoneyAmount).Max());
 		}
 	}
 }

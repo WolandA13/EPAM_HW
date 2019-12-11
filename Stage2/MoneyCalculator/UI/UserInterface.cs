@@ -96,8 +96,15 @@ namespace UI
 
 		private void AnalizeCashFlow()
 		{
-			financialAssistent.AnalizeCashFlow();
+			double accountBallance = financialAssistent.GetAccountBalance();
+			FinanceRecord maxIncomeRecord = financialAssistent.GetMaxIncomeRecord();
+			FinanceRecord maxExpenseRecord = financialAssistent.GetMaxExpenseRecord();
 
+			writer.WriteLine($"Баланс на счёте {accountBallance} у. е.");
+			writer.WriteLine("Максимальный доход:");
+			writer.Write(maxIncomeRecord);
+			writer.WriteLine("Максимальный расход:");
+			writer.Write(maxExpenseRecord);
 		}
 
 		private void AddExpense()
@@ -144,7 +151,7 @@ namespace UI
 			var expenses = from cashRecord in financialAssistent.CashFlow 
 						   where cashRecord.MoneyAmount < 0 
 						   select cashRecord;
-			writer.Write(expenses);
+			writer.Write(expenses.ToArray());
 		}
 
 		private void DisplayIncomes()
@@ -153,7 +160,7 @@ namespace UI
 			var incomes = from cashRecord in financialAssistent.CashFlow 
 						  where cashRecord.MoneyAmount > 0 
 						  select cashRecord;
-			writer.Write(incomes);
+			writer.Write(incomes.ToArray());
 		}
 
 		private List<double> GetInput()
