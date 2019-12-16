@@ -7,18 +7,20 @@ namespace Business
 	{
 		public bool IsWorking { get; set; }
 		public List<FinanceRecord> CashFlow { get; }
+		private readonly double tax;
 
 		public FinancialAssistent()
 		{
 			IsWorking = true;
 			CashFlow = new List<FinanceRecord>();
+			tax = 0.13;
 		}
 
 		public void AddIncomes(params double[] incomes)
 		{
 			foreach (var income in incomes)
 			{
-				AddRecord(income);
+				AddRecord(DeductTax(income));
 			}
 		}
 
@@ -49,6 +51,11 @@ namespace Business
 			}
 
 			CashFlow.Add(financeRecord);
+		}
+
+		private double DeductTax(double amountOfCash)
+		{
+			return amountOfCash * (1 - tax);
 		}
 
 		public double GetAccountBalance()

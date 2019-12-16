@@ -33,7 +33,8 @@ namespace UI
 		public void Start()
 		{
 			writer.WriteLine("Вас приветствует личный финансовый помощник!");
-			
+			writer.WriteLine("С сожалением сообщаем, что гос-во недавно ввело новый налог размером в 13% на все доходы. :(");
+
 			while (financialAssistent.IsWorking)
 			{
 				writer.WriteLine("Выберите функцию:");
@@ -157,7 +158,7 @@ namespace UI
 		private void DisplayIncomes()
 		{
 			writer.WriteLine("Доходы:");
-			var incomes = from cashRecord in financialAssistent.CashFlow 
+			var incomes = from cashRecord in financialAssistent.CashFlow
 						  where cashRecord.MoneyAmount > 0 
 						  select cashRecord;
 			writer.Write(incomes.ToArray());
