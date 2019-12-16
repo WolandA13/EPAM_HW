@@ -65,12 +65,32 @@ namespace Business
 
 		public FinanceRecord GetMaxExpenseRecord()
 		{
-			return CashFlow.Find(financeRecord => financeRecord.MoneyAmount == CashFlow.Select(el => el.MoneyAmount).Min());
+			FinanceRecord maxExpenseRecord;
+			try
+			{
+				maxExpenseRecord = CashFlow.Find(financeRecord => financeRecord.MoneyAmount == CashFlow.Select(el => el.MoneyAmount).Min());
+				maxExpenseRecord = (maxExpenseRecord.MoneyAmount < 0) ? maxExpenseRecord : new FinanceRecord(0);
+			}
+			catch
+			{
+				maxExpenseRecord = new FinanceRecord(0);
+			}
+			return maxExpenseRecord;
 		}
 
 		public FinanceRecord GetMaxIncomeRecord()
 		{
-			return CashFlow.Find(financeRecord => financeRecord.MoneyAmount == CashFlow.Select(el => el.MoneyAmount).Max());
+			FinanceRecord maxIncomeRecord;
+			try
+			{
+				maxIncomeRecord = CashFlow.Find(financeRecord => financeRecord.MoneyAmount == CashFlow.Select(el => el.MoneyAmount).Max());
+				maxIncomeRecord = (maxIncomeRecord.MoneyAmount > 0) ? maxIncomeRecord : new FinanceRecord(0);
+			}
+			catch
+			{
+				maxIncomeRecord = new FinanceRecord(0);
+			}
+			return maxIncomeRecord;
 		}
 	}
 }
