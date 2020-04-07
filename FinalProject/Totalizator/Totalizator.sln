@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Totalizator.Business", "Tot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Totalizator.Data", "Totalizator.Data\Totalizator.Data.csproj", "{C81347E2-7106-4768-8AC7-584E72B27076}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Totalizator.Shared", "Totalizator.Shared\Totalizator.Shared.csproj", "{050FF6E6-A316-4C4A-9967-1D2739B90014}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C81347E2-7106-4768-8AC7-584E72B27076}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C81347E2-7106-4768-8AC7-584E72B27076}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C81347E2-7106-4768-8AC7-584E72B27076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{050FF6E6-A316-4C4A-9967-1D2739B90014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{050FF6E6-A316-4C4A-9967-1D2739B90014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{050FF6E6-A316-4C4A-9967-1D2739B90014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{050FF6E6-A316-4C4A-9967-1D2739B90014}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

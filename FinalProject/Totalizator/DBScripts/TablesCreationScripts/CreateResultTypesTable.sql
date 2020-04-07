@@ -2,10 +2,10 @@ USE [TotalizatorDB];
 
 GO
 
-CREATE TABLE [KindsOfSport]
+CREATE TABLE [ResultTypes]
 (
 	[Id] INT PRIMARY KEY IDENTITY,
-	[Name] NVARCHAR(100) NOT NULL
+	[ResultType] VARCHAR(30) NOT NULL,
 );
 
 GO

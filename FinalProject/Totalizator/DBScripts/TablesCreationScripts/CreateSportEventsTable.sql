@@ -2,11 +2,11 @@ USE [TotalizatorDB];
 
 GO
 
-CREATE TABLE [Events]
+CREATE TABLE [SportEvents]
 (
 	[Id] INT PRIMARY KEY IDENTITY,
 	[Date] DATETIME NOT NULL,
-	[KindOfSportId] INT REFERENCES [KindsOfSport] ([Id]) NOT NULL
+	[SportId] INT REFERENCES [Sports] ([Id]) NOT NULL
 );
 
 GO

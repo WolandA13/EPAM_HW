@@ -1,0 +1,11 @@
+Roles
+Users
+Sports
+Sport Events
+Bets
+Personal Data
+Contact Information
+Result Types
+Results
+Teams
+Sport Event Teams
