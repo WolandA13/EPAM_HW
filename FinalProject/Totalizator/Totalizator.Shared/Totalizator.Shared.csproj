@@ -41,20 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Realization\Bet.cs" />
-    <Compile Include="Realization\ContactInformation.cs" />
+    <Compile Include="Bet.cs" />
+    <Compile Include="ContactInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Realization\Result.cs" />
-    <Compile Include="Realization\ResultType.cs" />
-    <Compile Include="Realization\Sport.cs" />
-    <Compile Include="Realization\SportEvent.cs" />
-    <Compile Include="Realization\SportEventTeam.cs" />
-    <Compile Include="Realization\Team.cs" />
-    <Compile Include="Realization\User.cs" />
-    <Compile Include="Realization\PersonalData.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="ResultType.cs" />
+    <Compile Include="Sport.cs" />
+    <Compile Include="SportEvent.cs" />
+    <Compile Include="SportEventTeam.cs" />
+    <Compile Include="Team.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="PersonalData.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
