@@ -1,4 +1,4 @@
-﻿namespace Totalizator.Web.Models
+﻿namespace Totalizator.Data.Models
 {
 	public class Team
 	{

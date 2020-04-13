@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using Totalizator.Business.Services.Interfaces;
+using Totalizator.Data.Models;
 using Totalizator.Data.Repositories.Interfaces;
 using Totalizator.Shared;
 
@@ -8,35 +10,37 @@ namespace Totalizator.Business.Services.Realizations
 	public class ContactInformationService : IContactInformationService
 	{
 		private readonly IContactInformationRepository contactInformationRepository;
+		private readonly IMapper mapper;
 
-		public ContactInformationService(IContactInformationRepository contactInfoRepo)
+		public ContactInformationService(IContactInformationRepository repository)
 		{
-			contactInformationRepository = contactInfoRepo;
+			contactInformationRepository = repository;
+			mapper = new MapperConfiguration(cfg => cfg.CreateMap<ContactInformationViewModel, ContactInformation>()).CreateMapper();
 		}
 
-		public int Put(ContactInformation contactInformation)
+		public int Put(ContactInformationViewModel contactInformationViewModel)
 		{
-			return contactInformationRepository.Put(contactInformation);
+			return contactInformationRepository.Put(mapper.Map<ContactInformationViewModel, ContactInformation>(contactInformationViewModel));
 		}
 
-		public ContactInformation GetById(int id)
+		public ContactInformationViewModel GetById(int id)
 		{
-			return contactInformationRepository.GetById(id);
+			return mapper.Map<ContactInformation, ContactInformationViewModel>(contactInformationRepository.GetById(id));
 		}
 
-		public IEnumerable<ContactInformation> GetByPersonalDataId(int personalDataId)
+		public IEnumerable<ContactInformationViewModel> GetByPersonalDataId(int personalDataId)
 		{
-			return contactInformationRepository.GetByPersonalDataId(personalDataId);
+			return mapper.Map<IEnumerable<ContactInformation>, IEnumerable<ContactInformationViewModel>>(contactInformationRepository.GetByPersonalDataId(personalDataId));
 		}
 
-		public IEnumerable<ContactInformation> GetAll()
+		public IEnumerable<ContactInformationViewModel> GetAll()
 		{
-			return contactInformationRepository.GetAll();
+			return mapper.Map<IEnumerable<ContactInformation>, IEnumerable<ContactInformationViewModel>>(contactInformationRepository.GetAll());
 		}
 
-		public int Update(ContactInformation contactInformation)
+		public int Update(ContactInformationViewModel contactInformationViewModel)
 		{
-			return contactInformationRepository.Update(contactInformation);
+			return contactInformationRepository.Update(mapper.Map<ContactInformationViewModel, ContactInformation>(contactInformationViewModel));
 		}
 
 		public int DeleteById(int id)

@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using Totalizator.Business.Services.Interfaces;
+using Totalizator.Data.Models;
 using Totalizator.Data.Repositories.Interfaces;
 using Totalizator.Shared;
 
@@ -8,35 +10,37 @@ namespace Totalizator.Business.Services.Realizations
 	public class PersonalDataService : IPersonalDataService
 	{
 		private readonly IPersonalDataRepository personalDataRepository;
+		private readonly IMapper mapper;
 
 		public PersonalDataService(IPersonalDataRepository personalDataRepo)
 		{
 			personalDataRepository = personalDataRepo;
+			mapper = new MapperConfiguration(cfg => cfg.CreateMap<PersonalDataViewModel, PersonalData>()).CreateMapper();
 		}
 
-		public int Put(PersonalData personalData)
+		public int Put(PersonalDataViewModel personalDataViewModel)
 		{
-			return personalDataRepository.Put(personalData);
+			return personalDataRepository.Put(mapper.Map<PersonalDataViewModel, PersonalData>(personalDataViewModel));
 		}
 
-		public IEnumerable<PersonalData> GetAll()
+		public IEnumerable<PersonalDataViewModel> GetAll()
 		{
-			return personalDataRepository.GetAll();
+			return mapper.Map<IEnumerable<PersonalData>, IEnumerable<PersonalDataViewModel>>(personalDataRepository.GetAll());
 		}
 
-		public PersonalData GetByUserId(int userId)
+		public PersonalDataViewModel GetByUserId(int userId)
 		{
-			return personalDataRepository.GetByUserId(userId);
+			return mapper.Map<PersonalData, PersonalDataViewModel>(personalDataRepository.GetByUserId(userId));
 		}
 
-		public PersonalData GetById(int id)
+		public PersonalDataViewModel GetById(int id)
 		{
-			return personalDataRepository.GetById(id);
+			return mapper.Map<PersonalData, PersonalDataViewModel>(personalDataRepository.GetById(id));
 		}
 
-		public int Update(PersonalData personalData)
+		public int Update(PersonalDataViewModel personalDataViewModel)
 		{
-			return personalDataRepository.Update(personalData);
+			return personalDataRepository.Update(mapper.Map<PersonalDataViewModel, PersonalData>(personalDataViewModel));
 		}
 
 		public int DeleteById(int id)

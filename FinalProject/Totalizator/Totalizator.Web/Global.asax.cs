@@ -2,6 +2,7 @@ using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Mvc;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -19,7 +20,7 @@ namespace Totalizator.Web
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-			NinjectModule repositoryModule = new RepositoryModule("DefaultConnection");
+			NinjectModule repositoryModule = new RepositoryModule(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 			NinjectModule serviceModule = new ServiceModule();
 			var kernel = new StandardKernel(serviceModule, repositoryModule);
 			DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));

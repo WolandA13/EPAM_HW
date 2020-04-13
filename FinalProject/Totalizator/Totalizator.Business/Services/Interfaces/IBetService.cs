@@ -5,15 +5,15 @@ namespace Totalizator.Business.Services.Interfaces
 {
 	public interface IBetService
 	{
-		int Put(Bet bet);
+		int Put(BetViewModel betViewModel);
 
-		IEnumerable<Bet> GetAll();
+		IEnumerable<BetViewModel> GetAll();
 
-		Bet GetById(int id);
+		BetViewModel GetById(int id);
 
-		IEnumerable<Bet> GetByUserId(int userId);
+		IEnumerable<BetViewModel> GetByUserId(int userId);
 
-		int Update(Bet bet);
+		int Update(BetViewModel betViewModel);
 
 		int DeleteById(int id);
 	}

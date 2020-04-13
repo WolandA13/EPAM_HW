@@ -5,13 +5,13 @@ namespace Totalizator.Business.Services.Interfaces
 {
 	public interface IUserService
 	{
-		int Put(User user);
+		int Put(UserViewModel userViewModel);
 
-		IEnumerable<User> GetAll();
+		IEnumerable<UserViewModel> GetAll();
 
-		User GetById(int id);
+		UserViewModel GetById(int id);
 
-		int Update(User user);
+		int Update(UserViewModel userViewModel);
 
 		int DeleteById(int id);
 	}

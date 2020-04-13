@@ -5,15 +5,15 @@ namespace Totalizator.Business.Services.Interfaces
 {
 	public interface ISportEventService
 	{
-		int Put(SportEvent sportEvent);
+		int Put(SportEventViewModel sportEventViewModel);
 
-		IEnumerable<SportEvent> GetAll();
+		IEnumerable<SportEventViewModel> GetAll();
 
-		IEnumerable<SportEvent> GetBySportId(int sportId);
+		IEnumerable<SportEventViewModel> GetBySportId(int sportId);
 
-		SportEvent GetById(int id);
+		SportEventViewModel GetById(int id);
 
-		int Update(SportEvent sportEvent);
+		int Update(SportEventViewModel sportEventViewModel);
 
 		int DeleteById(int id);
 	}

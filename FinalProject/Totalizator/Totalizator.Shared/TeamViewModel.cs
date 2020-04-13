@@ -1,6 +1,6 @@
 ﻿namespace Totalizator.Shared
 {
-	public class Team
+	public class TeamViewModel
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }

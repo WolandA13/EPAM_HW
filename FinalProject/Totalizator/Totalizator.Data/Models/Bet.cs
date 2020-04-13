@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Totalizator.Shared
+namespace Totalizator.Data.Models
 {
 	public class Bet
 	{

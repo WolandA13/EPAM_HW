@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using Totalizator.Business.Services.Interfaces;
+using Totalizator.Data.Models;
 using Totalizator.Data.Repositories.Interfaces;
 using Totalizator.Shared;
 
@@ -8,35 +10,37 @@ namespace Totalizator.Business.Services.Realizations
 	public class BetService : IBetService
 	{
 		private readonly IBetRepository betRepository;
+		private readonly IMapper mapper;
 
-		public BetService(IBetRepository betRepo)
+		public BetService(IBetRepository repository)
 		{
-			betRepository = betRepo;
+			betRepository = repository;
+			mapper = new MapperConfiguration(cfg => cfg.CreateMap<BetViewModel, Bet>()).CreateMapper();
 		}
 
-		public int Put(Bet bet)
+		public int Put(BetViewModel betViewModel)
 		{
-			return betRepository.Put(bet);
+			return betRepository.Put(mapper.Map<BetViewModel, Bet>(betViewModel));
 		}
 
-		public IEnumerable<Bet> GetAll()
+		public IEnumerable<BetViewModel> GetAll()
 		{
-			return betRepository.GetAll();
+			return mapper.Map<IEnumerable<Bet>, IEnumerable<BetViewModel>>(betRepository.GetAll());
 		}
 
-		public Bet GetById(int id)
+		public BetViewModel GetById(int id)
 		{
-			return betRepository.GetById(id);
+			return mapper.Map<Bet, BetViewModel>(betRepository.GetById(id));
 		}
 
-		public IEnumerable<Bet> GetByUserId(int userId)
+		public IEnumerable<BetViewModel> GetByUserId(int userId)
 		{
-			return betRepository.GetByUserId(userId);
+			return mapper.Map<IEnumerable<Bet>, IEnumerable<BetViewModel>>(betRepository.GetByUserId(userId));
 		}
 
-		public int Update(Bet bet)
+		public int Update(BetViewModel betViewModel)
 		{
-			return betRepository.Update(bet);
+			return betRepository.Update(mapper.Map<BetViewModel, Bet>(betViewModel));
 		}
 
 		public int DeleteById(int id)

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using Totalizator.Data.Repositories.Interfaces;
-using Totalizator.Shared;
+using Totalizator.Data.Models;
 
 namespace Totalizator.Data.Repositories.Realizations
 {

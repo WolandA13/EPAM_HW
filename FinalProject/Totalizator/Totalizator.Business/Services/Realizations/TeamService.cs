@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using Totalizator.Business.Services.Interfaces;
+using Totalizator.Data.Models;
 using Totalizator.Data.Repositories.Interfaces;
 using Totalizator.Shared;
 
@@ -8,30 +10,32 @@ namespace Totalizator.Business.Services.Realizations
 	public class TeamService : ITeamService
 	{
 		private readonly ITeamRepository teamRepository;
+		private readonly IMapper mapper;
 
 		public TeamService(ITeamRepository teamRepo)
 		{
 			teamRepository = teamRepo;
+			mapper = new MapperConfiguration(cfg => cfg.CreateMap<TeamViewModel, Team>()).CreateMapper();
 		}
 
-		public int Put(Team team)
+		public int Put(TeamViewModel teamViewModel)
 		{
-			return teamRepository.Put(team);
+			return teamRepository.Put(mapper.Map<TeamViewModel, Team>(teamViewModel));
 		}
 
-		public IEnumerable<Team> GetAll()
+		public IEnumerable<TeamViewModel> GetAll()
 		{
-			return teamRepository.GetAll();
+			return mapper.Map<IEnumerable<Team>, IEnumerable<TeamViewModel>>(teamRepository.GetAll());
 		}
 
-		public Team GetById(int id)
+		public TeamViewModel GetById(int id)
 		{
-			return teamRepository.GetById(id);
+			return mapper.Map<Team, TeamViewModel>(teamRepository.GetById(id));
 		}
 
-		public int Update(Team team)
+		public int Update(TeamViewModel teamViewModel)
 		{
-			return teamRepository.Update(team);
+			return teamRepository.Update(mapper.Map<TeamViewModel, Team>(teamViewModel));
 		}
 		
 		public int DeleteById(int id)

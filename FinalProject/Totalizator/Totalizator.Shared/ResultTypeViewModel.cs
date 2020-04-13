@@ -1,6 +1,6 @@
-﻿namespace Totalizator.Web.Models
+﻿namespace Totalizator.Shared
 {
-	public enum EventResult
+	public enum ResultTypeViewModel
 	{
 		FirstTeamWinning = 1,
 		SecondTeamWinning = 2,

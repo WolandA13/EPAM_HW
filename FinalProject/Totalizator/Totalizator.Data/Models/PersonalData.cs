@@ -1,4 +1,4 @@
-﻿namespace Totalizator.Shared
+﻿namespace Totalizator.Data.Models
 {
 	public class PersonalData
 	{

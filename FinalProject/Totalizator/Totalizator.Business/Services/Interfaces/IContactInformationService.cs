@@ -5,15 +5,15 @@ namespace Totalizator.Business.Services.Interfaces
 {
 	public interface IContactInformationService
 	{
-		int Put(ContactInformation сontactInformation);
+		int Put(ContactInformationViewModel сontactInformationViewModel);
 
-		ContactInformation GetById(int id);
+		ContactInformationViewModel GetById(int id);
 
-		IEnumerable<ContactInformation> GetByPersonalDataId(int personalDataId);
+		IEnumerable<ContactInformationViewModel> GetByPersonalDataId(int personalDataId);
 
-		IEnumerable<ContactInformation> GetAll();
+		IEnumerable<ContactInformationViewModel> GetAll();
 
-		int Update(ContactInformation сontactInformation);
+		int Update(ContactInformationViewModel сontactInformationViewModel);
 
 		int DeleteById(int id);
 	}

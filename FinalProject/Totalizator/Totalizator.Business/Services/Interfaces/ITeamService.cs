@@ -5,13 +5,13 @@ namespace Totalizator.Business.Services.Interfaces
 {
 	public interface ITeamService
 	{
-		int Put(Team team);
+		int Put(TeamViewModel teamViewModel);
 
-		IEnumerable<Team> GetAll();
+		IEnumerable<TeamViewModel> GetAll();
 
-		Team GetById(int id);
+		TeamViewModel GetById(int id);
 
-		int Update(Team team);
+		int Update(TeamViewModel teamViewModel);
 
 		int DeleteById(int id);
 	}

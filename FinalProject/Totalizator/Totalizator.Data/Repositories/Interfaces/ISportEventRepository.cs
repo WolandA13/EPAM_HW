@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Totalizator.Shared;
+using Totalizator.Data.Models;
 
 namespace Totalizator.Data.Repositories.Interfaces
 {

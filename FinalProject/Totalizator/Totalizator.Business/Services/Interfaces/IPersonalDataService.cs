@@ -5,15 +5,15 @@ namespace Totalizator.Business.Services.Interfaces
 {
 	public interface IPersonalDataService
 	{
-		int Put(PersonalData personalData);
+		int Put(PersonalDataViewModel personalDataViewModel);
 
-		IEnumerable<PersonalData> GetAll();
+		IEnumerable<PersonalDataViewModel> GetAll();
 
-		PersonalData GetByUserId(int userId);
+		PersonalDataViewModel GetByUserId(int userId);
 
-		PersonalData GetById(int id);
+		PersonalDataViewModel GetById(int id);
 
-		int Update(PersonalData personalData);
+		int Update(PersonalDataViewModel personalDataViewModel);
 
 		int DeleteById(int id);
 	}

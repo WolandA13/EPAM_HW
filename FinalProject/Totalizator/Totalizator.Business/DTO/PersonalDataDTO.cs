@@ -5,7 +5,8 @@ namespace Totalizator.Business.DTO
 {
 	public class PersonalDataDTO
 	{
-		public PersonalData PersonalData { get; set; }
-		public IEnumerable<ContactInformation> ContactInformationList { get; set; }
+		internal PersonalDataViewModel PersonalData { get; set; }
+
+		internal IEnumerable<ContactInformationViewModel> ContactInformationList { get; set; }
 	}
 }
