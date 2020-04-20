@@ -1,5 +1,4 @@
 USE [TotalizatorDB];
-
 GO
 
 CREATE TABLE [Teams]
@@ -8,5 +7,4 @@ CREATE TABLE [Teams]
 	[Name] NVARCHAR(100) NOT NULL,
 	[Country] NVARCHAR(50) NOT NULL
 );
-
 GO

@@ -1,13 +1,11 @@
 USE [TotalizatorDB];
-
 GO
 
 CREATE TABLE [Results]
 (
 	[Id] INT PRIMARY KEY IDENTITY,
-	[ResultTypeId] INT REFERENCES [ResultTypes] ([Id]) NOT NULL,
-	[Coefficient] DECIMAL NOT NULL,
-	[SportEventId] INT REFERENCES [SportEvents] ([Id]) NOT NULL
+	[Name] NVARCHAR(50) NOT NULL,
+	[Coefficient] FLOAT NOT NULL,
+	[SportEventId] INT REFERENCES [SportEvents] ([Id]) ON DELETE CASCADE NOT NULL
 );
-
 GO

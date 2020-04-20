@@ -1,7 +1,9 @@
 USE [TotalizatorDB];
+GO
 
 CREATE TABLE [Roles]
 (
 	[Id] INT PRIMARY KEY IDENTITY,
-	[Role] VARCHAR(20) NOT NULL UNIQuE,
+	[Role] VARCHAR(20) NOT NULL UNIQUE,
 );
+GO

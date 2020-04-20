@@ -1,11 +1,9 @@
 USE [TotalizatorDB];
-
 GO
 
 CREATE TABLE [Sports]
 (
 	[Id] INT PRIMARY KEY IDENTITY,
-	[Name] NVARCHAR(100) NOT NULL
+	[Name] NVARCHAR(100) UNIQUE NOT NULL
 );
-
 GO

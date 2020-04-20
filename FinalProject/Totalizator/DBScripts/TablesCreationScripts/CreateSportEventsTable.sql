@@ -1,12 +1,11 @@
 USE [TotalizatorDB];
-
 GO
 
 CREATE TABLE [SportEvents]
 (
 	[Id] INT PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(100),
 	[Date] DATETIME NOT NULL,
 	[SportId] INT REFERENCES [Sports] ([Id]) NOT NULL
 );
-
 GO

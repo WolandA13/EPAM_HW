@@ -1,5 +1,4 @@
 USE [TotalizatorDB];
-
 GO
 
 CREATE TABLE [PersonalData]
@@ -8,7 +7,6 @@ CREATE TABLE [PersonalData]
     [FirstName] NVARCHAR(20) NOT NULL,
 	[Patronymic] NVARCHAR(20),
     [LastName] NVARCHAR(20) NOT NULL,
-    [UserId] INT REFERENCES [Users] ([Id]) NOT NULL
+    [UserId] INT REFERENCES [Users] ([Id]) ON DELETE CASCADE NOT NULL
 );
-
 GO

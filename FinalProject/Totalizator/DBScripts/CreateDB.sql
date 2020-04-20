@@ -1,1 +1,1 @@
-CREATE DATABASE TotalizatorDB
+CREATE DATABASE [TotalizatorDB]

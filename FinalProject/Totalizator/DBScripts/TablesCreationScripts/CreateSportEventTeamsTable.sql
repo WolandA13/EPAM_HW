@@ -1,5 +1,4 @@
 USE [TotalizatorDB];
-
 GO
 
 CREATE TABLE [SportEventTeams]
@@ -8,5 +7,4 @@ CREATE TABLE [SportEventTeams]
 	[SportEventId] INT REFERENCES [SportEvents] ([Id]) NOT NULL,
 	[TeamId] INT REFERENCES [Teams] ([Id]) NOT NULL
 );
-
 GO
